@@ -1,15 +1,34 @@
 import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
+import { Helmet } from "react-helmet";
+import { Toaster } from 'react-hot-toast';
 
-function Layout({children}) {
+const Layout = ({children, title, description, keywords, author}) => {
   return (
     <div>
+      <Helmet>  
+        <meta charSet="utf-8" />
+        <meta name="description" content={description} />
+        <meta name="keywords" content={keywords} />
+        <meta name="author" content={author} />
+        <title>{title}</title>
+      </Helmet>
       <Header />
-      <main style={{minHeight: "81vh"}}>{children}</main>
+      <main style={{minHeight: "67vh"}}>
+        <Toaster />
+        {children}
+      </main>
       <Footer />
     </div>
   )
+}
+
+Layout.defaultProps = {
+  title: "Tech World - Shop Now",
+  description: "All digital gadget find hare",
+  keywords: "Digital, Gadget",
+  author: "Tech World",
 }
 
 export default Layout;
