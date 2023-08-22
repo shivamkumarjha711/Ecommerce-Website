@@ -42,6 +42,12 @@ export const registerController = async (req, res) => {
             password: hashedPassword
         }).save();
 
+        res.status(201).send({
+            success: true,
+            message: "User Register Successfully",
+            user,
+          });
+
     } catch (error) {
         console.log(error);
         res.status(500).send({
