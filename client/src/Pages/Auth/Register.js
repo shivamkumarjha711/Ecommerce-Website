@@ -11,6 +11,7 @@ function Register() {
     const [password, setPassword] = useState("")
     const [phone, setPhone] = useState("")
     const [address, setAddress] = useState("")
+    const [answer, setAnswer] = useState("")
     const navigate = useNavigate();
 
     // Form function
@@ -22,7 +23,8 @@ function Register() {
                 email, 
                 password, 
                 phone,     // what you have to send in backend write in object->{}
-                address
+                address,
+                answer
             });   
             if (res && res.data.success) {
                 toast.success(res.data && res.data.message);
@@ -91,6 +93,17 @@ function Register() {
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
                 placeholder='Enter Your Address' 
+                className="form-control" 
+                id="exampleInputEmail1" 
+                required
+                />
+            </div>
+            <div className="mb-3">
+            <input 
+                type="text" 
+                value={answer}
+                onChange={(e) => setAnswer(e.target.value)}
+                placeholder='What is your Favorire sports' 
                 className="form-control" 
                 id="exampleInputEmail1" 
                 required

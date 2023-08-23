@@ -66,8 +66,16 @@ function Login() {
             required
             />
         </div>
+        <div className='mb-3'>
+            <button 
+            type="button" className="btn btn-primary" onClick={() => {navigate('/forgot-password')}}>
+            Forgot Password
+            </button>
+        </div>
         <button 
-            type="submit" className="btn btn-primary">Login</button>
+            type="submit" className="btn btn-primary">
+            Login
+        </button>
         </form>
     </div>
 </Layout>
