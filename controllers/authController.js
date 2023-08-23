@@ -97,7 +97,8 @@ export const loginController = async(req, res) => {
                 name: user.name,
                 email: user.email,
                 phone: user.phone,
-                address: user.address
+                address: user.address,
+                role: user.role
             },
             token
         });
@@ -115,7 +116,7 @@ export const loginController = async(req, res) => {
 // forgot password controller
 export const forgotPasswordController = async (req, res) => {
     try {
-        const {email, question, newPassword} = req.body;
+        const {email, answer, newPassword} = req.body;
         // validation
         if (!email) {
             res.status(400).send({message: 'Email is required'})
