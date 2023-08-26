@@ -87,11 +87,11 @@ const UpdateProduct = () => {
     //   delete product
     const handleDelete = async () => {
         try {
-            let answer = window.prompt("Are you sure to delete this product ?")
+            let answer = window.prompt("Are you sure to delete this product ? ")
             if (!answer) return;
-            const {data} = await axios.delete(`${process.env.REACT_APP_API}/api/v1/product/delet-product//${id}`)
-            toast.success('Product Deleted Successfully')
-            navigate('/dashboard/admin/products')
+            const {data} = await axios.delete(`${process.env.REACT_APP_API}/api/v1/product/delete-product/${id}`)
+              toast.success('Product Deleted Successfully')
+              navigate('/dashboard/admin/products')
         } catch (error) {
             console.log(error);
             toast.error('Something went wrong')
@@ -107,7 +107,7 @@ const UpdateProduct = () => {
         </div>
         <div className='col-md-9'>
             <h1>Update Product</h1>
-            <form onSubmit={() => {handleUpdate; handleDelete}}>
+            <form>
             <div className='m-1 w-75'>
               <Select 
                 bordered={false} 
@@ -115,7 +115,7 @@ const UpdateProduct = () => {
                 size='large' 
                 showSearch
                 className='form-select mb-3' 
-                onChange={(value) => {setCategory(value);}}
+                onChange={(value) => {setCategory(value)}}
                 value={category}
                 > 
                   {
@@ -207,7 +207,7 @@ const UpdateProduct = () => {
                     </Select>
               </div>
               <div className='mb-3'>
-                    <button className="btn btn-primary">
+                    <button className="btn btn-primary" onClick={handleUpdate}>
                       UPDATE PRODUCT
                     </button>
               </div>
