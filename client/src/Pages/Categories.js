@@ -7,8 +7,8 @@ const Categories = () => {
     const categories = useCategory()
   return (
     <Layout title={'All Categories'}>
-        <h1>All Categories</h1>
-        <div className='container'>
+        <h1 className='text-center'>All Categories</h1>
+        <div className='container d-flex justify-content-center align-items-center'>
             <div className='row'>
                 {categories.map((c) => (
                     <div className='col-md-6 mt-5 mb-5 gy-3' key={c._id}>
